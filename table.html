@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Список хоккеистов</title>
+</head>
+<body>
+
+  <header>
+    <nav>
+      <ul>
+        <li><a href="index.html">Легенды хоккея</a></li>
+        <li><a href="table.html"><b>Список хоккеистов</b></a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <hr size="2" width="100%" noshade>
+
+  <main>
+
+    <details open>
+      <summary>График</summary>
+      <form name="chart" action="#" method="get">
+        <p><b>Значение по оси OX</b></p>
+        <p>
+          <input type="radio" name="ox" id="ox_position" value="position" checked>
+          <label for="ox-position">Позиция</label><br>
+          <input type="radio" name="ox" id="ox-country" value="country">
+          <label for="ox_country">Страна</label><br>
+          <input type="radio" name="ox" id="ox-club" value="club">
+          <label for="ox-club">Клуб</label>
+        </p>
+
+        <p><b>Значение по оси OY</b></p>
+        <p>
+          <input type="checkbox" name="oy" id="oy-max" value="max">
+          <label for="oy-max">Максимальный рост</label><br>
+          <input type="checkbox" name="oy" id="oy-min" value="min">
+          <label for="oy-min">Минимальный рост</label><br>
+          <input type="checkbox" name="oy" id="oy-count" value="count">
+          <label for="oy-count">Количество хоккеистов</label><br>
+          <input type="checkbox" name="oy" id="oy-goals" value="goals">
+          <label for="oy-goals">Сумма голов</label><br>
+          <input type="checkbox" name="oy" id="oy-points" value="points">
+          <label for="oy-points">Сумма очков</label>
+        </p>
+
+        <p><input type="button" value="Построить"></p>
+      </form>
+      <p>Здесь будет график</p>
+    </details>
+
+    <details open>
+      <summary>Фильтр</summary>
+      <form name="filter" action="#" method="get">
+        <p><label>Имя: <input type="text" name="name" size="25"></label></p>
+        <p><label>Позиция: <input type="text" name="position" size="25"></label></p>
+        <p><label>Страна: <input type="text" name="country" size="25"></label></p>
+        <p><label>Клуб: <input type="text" name="club" size="25"></label></p>
+        <p>
+          Год рождения: от <input type="number" name="yearFrom" min="1900" max="2026">
+          до <input type="number" name="yearTo" min="1900" max="2026">
+        </p>
+        <p>
+          Рост, см: от <input type="number" name="heightFrom" min="150" max="220">
+          до <input type="number" name="heightTo" min="150" max="220">
+        </p>
+        <p>
+          Голы: от <input type="number" name="goalsFrom" min="0">
+          до <input type="number" name="goalsTo" min="0">
+        </p>
+        <p>
+          Очки: от <input type="number" name="pointsFrom" min="0">
+          до <input type="number" name="pointsTo" min="0">
+        </p>
+        <p>
+          <input type="button" value="Найти">
+          <input type="reset" value="Очистить">
+        </p>
+      </form>
+    </details>
+
+    <details open>
+      <summary>Сортировка</summary>
+      <form name="sort" action="#" method="get">
+        <p>
+          <label for="sort1">Первый уровень:</label>
+          <select name="sort1" id="sort1">
+            <option value="0" selected>Нет</option>
+            <option value="1">Имя</option>
+            <option value="2">Позиция</option>
+            <option value="3">Страна</option>
+            <option value="4">Клуб</option>
+            <option value="5">Год рождения</option>
+            <option value="6">Рост</option>
+            <option value="7">Голы</option>
+            <option value="8">Очки</option>
+          </select>
+          <label>по убыванию? <input type="checkbox" name="desc1"></label>
+        </p>
+        <p>
+          <label for="sort2">Второй уровень:</label>
+          <select name="sort2" id="sort2">
+            <option value="0" selected>Нет</option>
+            <option value="1">Имя</option>
+            <option value="2">Позиция</option>
+            <option value="3">Страна</option>
+            <option value="4">Клуб</option>
+            <option value="5">Год рождения</option>
+            <option value="6">Рост</option>
+            <option value="7">Голы</option>
+            <option value="8">Очки</option>
+          </select>
+          <label>по убыванию? <input type="checkbox" name="desc2"></label>
+        </p>
+        <p>
+          <label for="sort3">Третий уровень:</label>
+          <select name="sort3" id="sort3">
+            <option value="0" selected>Нет</option>
+            <option value="1">Имя</option>
+            <option value="2">Позиция</option>
+            <option value="3">Страна</option>
+            <option value="4">Клуб</option>
+            <option value="5">Год рождения</option>
+            <option value="6">Рост</option>
+            <option value="7">Голы</option>
+            <option value="8">Очки</option>
+          </select>
+          <label>по убыванию? <input type="checkbox" name="desc3"></label>
+        </p>
+        <p>
+          <input type="button" value="Сортировать">
+          <input type="reset" value="Сбросить сортировку">
+        </p>
+      </form>
+    </details>
+
+    <br>
+
+    <table border="1" cellpadding="5" cellspacing="0" width="100%">
+      <caption><b>Знаменитые хоккеисты</b></caption>
+      <thead>
+        <tr>
+          <th>Имя</th>
+          <th>Позиция</th>
+          <th>Страна</th>
+          <th>Клуб</th>
+          <th>Год рождения</th>
+          <th>Рост, см</th>
+          <th>Голы в НХЛ</th>
+          <th>Очки в НХЛ</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Александр Овечкин</td><td>Нападающий</td><td>Россия</td><td>Вашингтон Кэпиталз</td><td align="center">1985</td><td align="center">191</td><td align="center">930</td><td align="center">1689</td></tr>
+        <tr><td>Уэйн Гретцки</td><td>Нападающий</td><td>Канада</td><td>Эдмонтон Ойлерз</td><td align="center">1961</td><td align="center">183</td><td align="center">894</td><td align="center">2857</td></tr>
+        <tr><td>Владислав Третьяк</td><td>Вратарь</td><td>СССР</td><td>ЦСКА</td><td align="center">1952</td><td align="center">185</td><td align="center">0</td><td align="center">0</td></tr>
+        <tr><td>Сидни Кросби</td><td>Нападающий</td><td>Канада</td><td>Питтсбург Пингвинз</td><td align="center">1987</td><td align="center">180</td><td align="center">654</td><td align="center">1763</td></tr>
+        <tr><td>Павел Буре</td><td>Нападающий</td><td>Россия</td><td>Ванкувер Кэнакс</td><td align="center">1971</td><td align="center">178</td><td align="center">437</td><td align="center">779</td></tr>
+        <tr><td>Коннор Макдэвид</td><td>Нападающий</td><td>Канада</td><td>Эдмонтон Ойлерз</td><td align="center">1997</td><td align="center">185</td><td align="center">412</td><td align="center">1233</td></tr>
+        <tr><td>Евгений Малкин</td><td>Нападающий</td><td>Россия</td><td>Питтсбург Пингвинз</td><td align="center">1986</td><td align="center">191</td><td align="center">536</td><td align="center">1412</td></tr>
+        <tr><td>Марио Лемьё</td><td>Нападающий</td><td>Канада</td><td>Питтсбург Пингвинз</td><td align="center">1965</td><td align="center">193</td><td align="center">690</td><td align="center">1723</td></tr>
+        <tr><td>Яромир Ягр</td><td>Нападающий</td><td>Чехия</td><td>Питтсбург Пингвинз</td><td align="center">1972</td><td align="center">191</td><td align="center">766</td><td align="center">1921</td></tr>
+        <tr><td>Никита Кучеров</td><td>Нападающий</td><td>Россия</td><td>Тампа-Бэй Лайтнинг</td><td align="center">1993</td><td align="center">180</td><td align="center">402</td><td align="center">1132</td></tr>
+        <tr><td>Андрей Василевский</td><td>Вратарь</td><td>Россия</td><td>Тампа-Бэй Лайтнинг</td><td align="center">1994</td><td align="center">191</td><td align="center">0</td><td align="center">24</td></tr>
+        <tr><td>Доминик Гашек</td><td>Вратарь</td><td>Чехия</td><td>Баффало Сейбрз</td><td align="center">1965</td><td align="center">180</td><td align="center">0</td><td align="center">19</td></tr>
+        <tr><td>Никлас Лидстрём</td><td>Защитник</td><td>Швеция</td><td>Детройт Ред Уингз</td><td align="center">1970</td><td align="center">188</td><td align="center">264</td><td align="center">1142</td></tr>
+        <tr><td>Бобби Орр</td><td>Защитник</td><td>Канада</td><td>Бостон Брюинз</td><td align="center">1948</td><td align="center">183</td><td align="center">270</td><td align="center">915</td></tr>
+        <tr><td>Сергей Фёдоров</td><td>Нападающий</td><td>Россия</td><td>Детройт Ред Уингз</td><td align="center">1969</td><td align="center">185</td><td align="center">483</td><td align="center">1179</td></tr>
+        <tr><td>Кирилл Капризов</td><td>Нападающий</td><td>Россия</td><td>Миннесота Уайлд</td><td align="center">1997</td><td align="center">178</td><td align="center">236</td><td align="center">484</td></tr>
+        <tr><td>Остон Мэттьюс</td><td>Нападающий</td><td>США</td><td>Торонто Мейпл Лифс</td><td align="center">1997</td><td align="center">191</td><td align="center">432</td><td align="center">790</td></tr>
+      </tbody>
+    </table>
+    <p><small>Голы и очки — в регулярных чемпионатах НХЛ, по состоянию на 13 октября 2026 года.</small></p>
+
+  </main>
+
+  <hr size="2" width="100%" noshade>
+
+  <footer>
+    Делал: Католик Александр Сергеевич
+  </footer>
+
+</body>
+</html>
